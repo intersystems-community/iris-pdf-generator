@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Paths;
+import java.nio.file.Files;
 
 import org.apache.pdfbox.cos.COSDocument;
 import org.apache.pdfbox.io.RandomAccessFile;
@@ -32,23 +35,37 @@ public class TextToPdf {
 				.setPdfVersion(PdfWriter.PDF_VERSION_1_7);
 		pdfDoc.open();
 
-		Font myfont = new Font(Font.FontFamily.COURIER, 12);
+		Font myfont = new Font(Font.FontFamily.COURIER, 9);
 		// A few other example fonts...
 //		Font myfont = new Font(Font.FontFamily.HELVETICA, 12);
 //		Font myfont = new Font(Font.FontFamily.TIMES_ROMAN, 12);
 
-		pdfDoc.add(new Paragraph("\n"));
-		
-		BufferedReader br = new BufferedReader(new FileReader(textFilename));
-		String strLine;
-		while ((strLine = br.readLine()) != null) {
-			Paragraph para = new Paragraph(strLine + "\n", myfont);
-			para.setAlignment(Element.ALIGN_JUSTIFIED);
-			pdfDoc.add(para);
+
+		String sourceContent = readFile(textFilename, Charset.defaultCharset());
+		String[] pages = sourceContent.split("");
+
+		for (String page: pages) {
+			String lines[] = page.split("\\r?\\n");
+			
+			for (String line: lines) {
+				Paragraph para = new Paragraph(line, myfont);
+				para.setAlignment(Element.ALIGN_LEFT);
+				pdfDoc.add(para);
+			}
+
+			if (!page.replaceAll("[\\r\\n\\t ]", "").isEmpty()) {
+				pdfDoc.newPage();
+			}
 		}
-		
+				
 		pdfDoc.close();
-		br.close();
+	}
+
+	static String readFile(String path, Charset encoding)
+		throws IOException
+	{
+		byte[] encoded = Files.readAllBytes(Paths.get(path));
+		return new String(encoded, encoding);
 	}
 
 }
