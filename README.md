@@ -5,6 +5,7 @@ This repository contains an example text file to PDF converter and instructions 
 ## Installation
 
 Installing TextToPDF requires that you have access to your IRIS server with sufficient access to work with gateways and classes.
+Alternative installation as docker added.
 
 ### 1. Clone this repository
 
@@ -48,3 +49,24 @@ This is a small maven project.  If you have maven installed then you should be a
 ```
 maven install
 ```
+  
+## Docker Installation
+Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed 
+Clone/git pull the repo into any local directory as decribd in 1.)  
+Open the terminal in this directory build and run th container:
+~~~
+$ docker-compose up --build -d 
+~~~
+### How to Test it
+The Java Gateway isw already set up 
+Either use Webterminal in namespace USER or from terminal prompt 
+~~~
+  $ docker-compose exec iris iris session iris
+~~~
+now run 
+~~~
+  USER>do ##class(dc.PackageSample.ObjectScript).DockerDemo()
+~~~
+You see the result in your <clonedirectory>/pdfout/
+  
+  
