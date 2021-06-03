@@ -1,0 +1,15 @@
+;do $System.OBJ.LoadDir("/opt/irisbuild/src","ck",,1)
+
+zn "%SYS"
+Do ##class(Security.Users).UnExpireUserPasswords("*")
+write !,"*** setup Java Gateway ***",!
+set GW=##class(%Net.Remote.ObjectGateway).%New()
+set GW.Name="iris-pdf-generator"
+set GW.Type=1
+set GW.Port=54545
+set GW.ClassPath = "/irisrun/repo/target/iris-pdf-generator-0.1.0-jar-with-dependencies.jar"
+set sc=GW.%Save()
+zn "USER"
+zpm "install webterminal"
+do $System.OBJ.Load("/opt/irisbuild/src/PdfGenerator.cls","ck")
+halt
