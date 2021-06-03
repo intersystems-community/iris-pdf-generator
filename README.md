@@ -59,8 +59,8 @@ Open the terminal in this directory build and run the container:
   $ docker-compose up --build -d 
 ~~~
 ### How to Test it
-The Java Gateway isw already set up 
-Either use Webterminal in namespace USER or from terminal prompt 
+The Java Gateway isw already set up   
+Either use Webterminal in namespace USER or from terminal prompt    
 ~~~
   $ docker-compose exec iris iris session iris
 ~~~
