@@ -59,7 +59,7 @@ Open the terminal in this directory build and run the container:
   $ docker-compose up --build -d 
 ~~~
 ### How to Test it
-The Java Gateway isw already set up   
+The Java Gateway is already set up. No action required.       
 Either use Webterminal in namespace USER or from terminal prompt    
 ~~~
   $ docker-compose exec iris iris session iris
