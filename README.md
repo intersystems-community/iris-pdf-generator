@@ -51,9 +51,9 @@ maven install
 ```
   
 ## Docker Installation
-Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed 
-Clone/git pull the repo into any local directory as decribd in 1.)  
-Open the terminal in this directory build and run th container:
+Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed     
+Clone/git pull the repo into any local directory as decribd in 1.)     
+Open the terminal in this directory build and run the container:    
 ~~~
 $ docker-compose up --build -d 
 ~~~
@@ -65,8 +65,8 @@ Either use Webterminal in namespace USER or from terminal prompt
 ~~~
 now run 
 ~~~
-  USER>do ##class(dc.PackageSample.ObjectScript).DockerDemo()
+  USER>do ##class(PdfGenerator).DockerDemo()
 ~~~
-You see the result in your <clonedirectory>/pdfout/
+You see the result in your \<clone dir\>/pdfout/
   
   
