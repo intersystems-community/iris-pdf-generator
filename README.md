@@ -51,11 +51,12 @@ maven install
 ```
   
 ## Docker Installation
-Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed     
-Clone/git pull the repo into any local directory as decribd in 1.)     
+Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed   
+  
+Clone/git pull the repo into any local directory as described in 1.)     
 Open the terminal in this directory build and run the container:    
 ~~~
-$ docker-compose up --build -d 
+  $ docker-compose up --build -d 
 ~~~
 ### How to Test it
 The Java Gateway isw already set up 
