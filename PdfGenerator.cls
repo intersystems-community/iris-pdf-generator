@@ -29,5 +29,14 @@ ClassMethod TextToPdf(textFilename As %String, pdfFilename As %String) as %Statu
 
     Quit $$$OK
 }
-
+/// do ##class(PdfGenerator).DockerDemo()
+ClassMethod DockerDemo()
+{
+	set out="/irisrun/repo/pdfout/example_"_$i(^pdf)_".pdf"
+	do ..TextToPdf("/irisrun/repo/example.txt",out)
+	write !,"*** done ***",
+			!,"see: "_out,
+			!,"external: <gitclone>/pdfout/example_"_^pdf_".pdf",!
+	quit
+}
 }
